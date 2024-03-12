@@ -1,6 +1,6 @@
 package students.items;
 
-public class Item {
+public abstract class Item {
 	
 	int age;
 	int maturationAge;
@@ -50,4 +50,6 @@ public class Item {
 			return false;
 		}
 	}
+	
+	public abstract String toString();
 }
