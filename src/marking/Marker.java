@@ -30,19 +30,15 @@ public class Marker {
 		System.out.println(new Weed()); // should print "#"
 		System.out.println(new UntilledSoil()); // should print "/"
 		
-		Item item1 = new Grain();  
-        Item item2 = new Apples();  
-        Item item3 = new Grain();  
-
-        System.out.println("item1 equals item2: " + item1.equals(item2));
-        System.out.println("item1 equals item3: " + item1.equals(item3));
+// 		TESTING CODE FOR EQUALS METHOD IN ITEMS CLASS		
+//		Item item1 = new Grain();  
+//      Item item2 = new Apples();  
+//      Item item3 = new Grain();  
+//
+//      System.out.println("item1 equals item2: " + item1.equals(item2));
+//      System.out.println("item1 equals item3: " + item1.equals(item3));
 		
-		
-		
-		
-		
-		
-
+	
 		// Section TWO
 		// uncomment this section once you get to it
 		

@@ -13,7 +13,7 @@ public class Soil extends Item{
 
 	@Override
 	public String toString() {
-		return "/";
+		return ".";
 	}
 
 }
