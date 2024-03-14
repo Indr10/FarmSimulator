@@ -14,12 +14,11 @@ public class Grain extends Food{
 		instanceCount++;
 	}
 	
-	
 	public static int getGenerationCount() {
 		
 		return instanceCount;
 	}
-
+	
 	@Override
 	public String toString() {
 		if (age < maturationAge) {
