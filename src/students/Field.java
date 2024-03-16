@@ -1,25 +1,20 @@
 package students;
 
-import students.items.Apples;
-import students.items.Grain;
-import students.items.Item;
-import students.items.Soil;
-import students.items.UntilledSoil;
-import students.items.Weed;
+import students.items.*;		
 import java.util.Random;
 
 public class Field {
 	
 	int height;
 	int width;
-	
-	Item[][] field = new Item[height][width];
+	Item [][] field;
 	
 			
 	public Field(int height, int width){
 		
 		this.height = height;
 		this.width = width;
+		this.field = new Item[height][width];
 		
 		for (int i = 0; i < height; i++) {
 			for (int j = 0; j < width; j++) {
@@ -28,6 +23,29 @@ public class Field {
 		}
 	}
 	
+	public String toString() {
+		
+		String fieldString = "  ";
+		
+		for (int i = 1; i <= field[0].length - 1; i++) {
+			
+			fieldString += i + " ";
+		}
+		
+		fieldString += "\n";
+		
+		for (int j = 0; j <= field.length - 1; j++) {
+			
+			fieldString += (j + 1) + " ";
+			
+			for (int k = 0; k < field[j].length - 1; k++) {
+				
+				fieldString += field[j][k].toString() + " ";
+			}
+			fieldString += "\n";
+		}
+		return fieldString;
+	}
 	
 	public void tick() {
 		
@@ -63,16 +81,15 @@ public class Field {
 			
 	}
 	
-//	public Object get(int row, int column) {
-//		
-//		return field[row][column].clone();
-//		
-//	}
-	
-	
-	public void plant(int row, int column) { 
+	public Object get(int row, int column) throws CloneNotSupportedException {
+			
+		return field[row][column].clone();
 		
+	}	
+	
+	public void plant(int row, int column, Item item) { 
 		
+		field[row][column] = item;
 		
 	}
 	
@@ -90,7 +107,6 @@ public class Field {
 		return value;
 	}
 	
-	
 	public String getSummary() {
 		
 		int applesCount = 0;
@@ -104,8 +120,8 @@ public class Field {
 			for (int j = 0; j < width; j++) {
 				
 				if (field[i][j] instanceof Apples) {
-					applesCount++;
-					totalPrice += field[i][j].getValue();
+				    applesCount++;
+				    totalPrice += field[i][j].getValue();
 				}
 				else if (field[i][j] instanceof Grain) {
 					grainCount++;
@@ -118,18 +134,19 @@ public class Field {
 					untilledCount++;
 					totalPrice += field[i][j].getValue();
 				}
-				else
+				else {
 					weedCount++;
 					totalPrice += field[i][j].getValue();
 				}							
+			}		
 		}		
-		return String.format("Apples:				%s%n", applesCount) + 
-			       String.format("Grain:				$%9.2f%n", grainCount) +
-			       String.format("Soil:		$%9.2f%n", soilCount) +
-			       String.format("Untilled:		$%9.2f%n", untilledCount) +
-			       String.format("Weed:			$%9.2f%n", weedCount) +
-			       String.format("For a total of:			$%9.2f%n", totalPrice ) +
-			       String.format("Total apples created:			$%9.2f%n", Apples.getGenerationCount()) +
-			       String.format("Total grain created:			$%9.2f%n", Grain.getGenerationCount());		
-	}			
+		return String.format("Apples: 	%d%n", applesCount) + 
+				String.format("Grain: 		%d%n", grainCount) +
+				String.format("Soil: 		%d%n", soilCount) +
+				String.format("Untilled: 	%d%n", untilledCount) +
+				String.format("Weed:		%d%n", weedCount) +
+				String.format("For a total of:	$%d%n", totalPrice ) +
+				String.format("Total apples created: %d%n", Apples.getGenerationCount()) +
+				String.format("Total grain created: %d%n", Grain.getGenerationCount());		
+	}
 }
