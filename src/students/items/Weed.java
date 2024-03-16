@@ -15,4 +15,9 @@ public class Weed extends Item{
 	public String toString() {
 		return "#";
 	}
+
+	public static int getMonetaryValue() {
+		
+		return 0;
+	}
 }

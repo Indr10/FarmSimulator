@@ -6,7 +6,7 @@ public class Apples extends Food{
 
 	final static int MATURATION_AGE = 3;
 	final static int DEATH_AGE = 5;
-	final static int MONETARY_VALUE = 3;
+	private final static int MONETARY_VALUE = 3;
 	
 	public Apples() {
 		super(MATURATION_AGE, DEATH_AGE, MONETARY_VALUE);
@@ -28,5 +28,10 @@ public class Apples extends Food{
 		else {
 			return "A";
 		}
+	}
+
+
+	public static int getMonetaryValue() {
+		return MONETARY_VALUE;
 	}
 }

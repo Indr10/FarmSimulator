@@ -28,4 +28,8 @@ public class Grain extends Food{
 			return "G";
 		}	
 	}
+
+	public static int getMonetaryValue() {
+		return MONETARY_VALUE;
+	}
 }
