@@ -1,6 +1,6 @@
 package students;
 
-import students.items.*;		
+import students.items.*;
 import java.util.Random;
 
 public class Field {
@@ -27,20 +27,14 @@ public class Field {
 	public String toString() {
 		
 		String fieldString = "  ";
-		
-		for (int i = 1; i <= field[0].length - 1; i++) {
-			
+		for (int i = 1; i <= field[0].length; i++) {
 			fieldString += i + " ";
 		}
 		
 		fieldString += "\n";
-		
 		for (int j = 0; j <= field.length - 1; j++) {
-			
 			fieldString += (j + 1) + " ";
-			
-			for (int k = 0; k < field[j].length - 1; k++) {
-				
+			for (int k = 0; k <= field[j].length - 1; k++) {
 				fieldString += field[j][k].toString() + " ";
 			}
 			fieldString += "\n";
