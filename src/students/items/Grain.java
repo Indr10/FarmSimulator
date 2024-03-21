@@ -7,6 +7,7 @@ public class Grain extends Food{
 	final static int MATURATION_AGE = 2;
 	final static int DEATH_AGE = 6;
 	final static int MONETARY_VALUE = 2;
+	private final static int COST = 1;
 	
 	public Grain() {
 		super(MATURATION_AGE, DEATH_AGE, MONETARY_VALUE);
@@ -29,7 +30,15 @@ public class Grain extends Food{
 		}	
 	}
 
-	public static int getMonetaryValue() {
-		return MONETARY_VALUE;
+	public static int getCost() {
+		return COST;
+	}
+
+	@Override
+	public Item copyCons(Item someItem) {
+		
+		
+		
+		return null;
 	}
 }

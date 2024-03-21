@@ -6,7 +6,7 @@ import students.items.*;
 
 public class Marker {
 
-	public static void main(String[] args) throws CloneNotSupportedException {
+	public static void main(String[] args) {
 		
 		// Section ONE
 		
@@ -43,7 +43,7 @@ public class Marker {
 		// uncomment this section once you get to it
 		
 		
-//		Field testField = new Field(5, 5);
+//		Field testField = new Field(10, 10);
 //		System.out.println(testField.get(3, 3)); //should print "."
 //		System.out.println(testField); //should print the field
 //		System.out.println(testField.getValue()); //should print 0

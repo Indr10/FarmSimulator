@@ -1,17 +1,11 @@
 	package students.items;
 	
-	public abstract class Item implements Cloneable{
+	public abstract class Item{
 		
 		int age;
 		int maturationAge;
 		int deathAge;
-		int monetaryValue;
-		
-		@Override
-		public Object clone() throws CloneNotSupportedException {
-	        return super.clone();
-	    }
-	
+		int monetaryValue;	
 		
 		public Item(int maturationAge, int deathAge, int monetaryValue) {
 			this.age = 0;
@@ -58,4 +52,6 @@
 		}
 		
 		public abstract String toString();
+		
+		public abstract Item copyCons(Item someItem);
 	}

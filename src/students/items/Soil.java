@@ -15,4 +15,10 @@ public class Soil extends Item{
 	public String toString() {
 		return ".";
 	}
+
+	@Override
+	public Item copyCons(Item someItem) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

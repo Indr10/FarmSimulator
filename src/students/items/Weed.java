@@ -20,4 +20,10 @@ public class Weed extends Item{
 		
 		return 0;
 	}
+
+	@Override
+	public Item copyCons(Item someItem) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

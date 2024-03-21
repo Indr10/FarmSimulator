@@ -23,7 +23,6 @@ public class Farm {
 		while (running) {
 			System.out.println(field.toString());
 			
-			
 			System.out.println("Bank balance: $ "
 					+ this.playerBalance
 					+ "\n\nEnter your next action: \n"
@@ -40,8 +39,9 @@ public class Farm {
 			int yValue = -1;
 			String action = "";
 			
-			if (actionDetect.length() >= 5) {
+			if (actionDetect.length() > 1) {
 				
+				action = actionDetect.substring(0,1);
 			    xValue = Integer.parseInt(actionDetect.substring(2, 3));
 			    yValue = Integer.parseInt(actionDetect.substring(4, 5));
 			} 
@@ -56,6 +56,7 @@ public class Farm {
 			
 			if (action.equals("q")) {
 				running = false;
+				scanner.close();
 			}
 			
 			else if (action.equals("w")) {
@@ -71,20 +72,20 @@ public class Farm {
 				
 				System.out.println("Enter: \n"
 						+ " - 'a' to buy an apple for $"
-						+ Apples.getMonetaryValue()
-						+ " - 'g' to buy grain for $"
-						+ Grain.getMonetaryValue());
+						+ Apples.getCost()
+						+ "\n - 'g' to buy grain for $"
+						+ Grain.getCost());
 				
 				String foodSelection = scanner.nextLine();
 				
-				if (foodSelection == "a") {
-					if (playerBalance >= Apples.getMonetaryValue()) {
+				if (foodSelection.equals("a")) {
+					if (playerBalance >= Apples.getCost()) {
 						if (field.field[row][column] instanceof Soil) {
-							field.plant(row, column, new Apples());
-							playerBalance -= Apples.getMonetaryValue();
+							field.plant(row - 1, column - 1, new Apples());
+							playerBalance -= Apples.getCost();
 						}
 						else {
-							System.out.println("This location isnt free OR it doesn't have Soil");
+							System.out.println("This location isn't free OR isn't tilled");
 						}
 					}
 					else {
@@ -94,10 +95,10 @@ public class Farm {
 				}
 				
 				else {
-					if (playerBalance >= Grain.getMonetaryValue()) {
+					if (playerBalance >= Grain.getCost()) {
 						if (field.field[row][column] instanceof Soil) {
-							field.plant(row, column, new Grain());
-							playerBalance -= Grain.getMonetaryValue();
+							field.plant(row - 1, column - 1, new Grain());
+							playerBalance -= Grain.getCost();
 						}
 						else {
 							System.out.println("This location isnt free OR it doesn't have Soil");
@@ -113,25 +114,25 @@ public class Farm {
 			else if (action.equals("h")) {
 				
 				if (field.field[row][column] instanceof Grain) {
-					playerBalance += Grain.getMonetaryValue();
+					playerBalance += Grain.getCost();
+					field.field[row][column] = new Soil();
 				}
 				
 				else if (field.field[row][column] instanceof Apples) {
-					playerBalance += Apples.getMonetaryValue();
+					playerBalance += Apples.getCost();
+					field.field[row][column] = new Soil();
 				}
 				
 				else if (field.field[row][column] instanceof Weed) {
 					playerBalance += Weed.getMonetaryValue();
+					field.field[row][column] = new Soil();
 				}
 			}
 			
 			else if (action.equals("t")) {
 				
-				if(field.field[row][column] instanceof UntilledSoil) {
-					field.till(row, column);	
-				}
+				field.till(row, column);	
 			}
-			scanner.close();
 		}
 	}
 }

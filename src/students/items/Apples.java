@@ -6,7 +6,9 @@ public class Apples extends Food{
 
 	final static int MATURATION_AGE = 3;
 	final static int DEATH_AGE = 5;
-	private final static int MONETARY_VALUE = 3;
+	final static int MONETARY_VALUE = 3;
+	private final static int COST = 2;
+	
 	
 	public Apples() {
 		super(MATURATION_AGE, DEATH_AGE, MONETARY_VALUE);
@@ -30,8 +32,21 @@ public class Apples extends Food{
 		}
 	}
 
-
-	public static int getMonetaryValue() {
-		return MONETARY_VALUE;
+	public static int getCost() {
+		return COST;
 	}
+	
+
+	@Override
+	public Item copyCons(Item someItem) {
+		
+		this.age = someItem.age;
+		this.deathAge = someItem.deathAge;
+		this.maturationAge = someItem.maturationAge;
+		this.monetaryValue = someItem.monetaryValue;
+		
+		return this;
+
+	}
+		
 }

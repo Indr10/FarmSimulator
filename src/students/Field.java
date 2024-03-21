@@ -26,14 +26,19 @@ public class Field {
 	@Override
 	public String toString() {
 		
-		String fieldString = "  ";
+		String fieldString = "   ";
 		for (int i = 1; i <= field[0].length; i++) {
 			fieldString += i + " ";
 		}
 		
 		fieldString += "\n";
 		for (int j = 0; j <= field.length - 1; j++) {
-			fieldString += (j + 1) + " ";
+			if (j != 9) {
+				fieldString += " " + (j + 1) + " ";
+			}
+			else {
+				fieldString += (j + 1) + " ";
+			}
 			for (int k = 0; k <= field[j].length - 1; k++) {
 				fieldString += field[j][k].toString() + " ";
 			}
@@ -76,11 +81,15 @@ public class Field {
 			
 	}
 	
-	public Object get(int row, int column) throws CloneNotSupportedException {
-			
-		return field[row][column].clone();
+	public Object get(int row, int column) {
+		
+		Item cource = new field[row][column];
+		Item clone = new ;
+		
+		return copy;
 		
 	}	
+
 	
 	public void plant(int row, int column, Item item) { 
 		
