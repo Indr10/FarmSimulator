@@ -37,8 +37,11 @@ public class Grain extends Food{
 	@Override
 	public Item copyCons(Item someItem) {
 		
+		this.age = someItem.age;
+		this.deathAge = someItem.deathAge;
+		this.maturationAge = someItem.maturationAge;
+		this.monetaryValue = someItem.monetaryValue;
 		
-		
-		return null;
+		return this;
 	}
 }

@@ -83,10 +83,7 @@ public class Field {
 	
 	public Object get(int row, int column) {
 		
-		Item cource = new field[row][column];
-		Item clone = new ;
-		
-		return copy;
+		return field[row][column].copyCons(field[row][column]);
 		
 	}	
 

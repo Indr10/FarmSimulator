@@ -15,4 +15,15 @@ public class UntilledSoil extends Item{
 	public String toString() {
 		return "/";
 	}
+
+	@Override
+	public Item copyCons(Item someItem) {
+		
+		this.age = someItem.age;
+		this.deathAge = someItem.deathAge;
+		this.maturationAge = someItem.maturationAge;
+		this.monetaryValue = someItem.monetaryValue;
+		
+		return this;
+	}
 }

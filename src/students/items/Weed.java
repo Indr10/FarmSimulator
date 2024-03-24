@@ -23,7 +23,12 @@ public class Weed extends Item{
 
 	@Override
 	public Item copyCons(Item someItem) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		this.age = someItem.age;
+		this.deathAge = someItem.deathAge;
+		this.maturationAge = someItem.maturationAge;
+		this.monetaryValue = someItem.monetaryValue;
+		
+		return this;
 	}
 }

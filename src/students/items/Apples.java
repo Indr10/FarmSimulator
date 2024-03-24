@@ -46,7 +46,6 @@ public class Apples extends Food{
 		this.monetaryValue = someItem.monetaryValue;
 		
 		return this;
-
 	}
 		
 }
