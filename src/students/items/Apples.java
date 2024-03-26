@@ -36,16 +36,22 @@ public class Apples extends Food{
 		return COST;
 	}
 	
-
-	@Override
-	public Item copyCons(Item someItem) {
+	
+	public Apples(Item someItem) {
+		super(someItem);
 		
 		this.age = someItem.age;
 		this.deathAge = someItem.deathAge;
 		this.maturationAge = someItem.maturationAge;
 		this.monetaryValue = someItem.monetaryValue;
 		
-		return this;
+	;
+	}
+	
+	@Override
+	public Apples copyCons() {
+		
+		return new Apples(this);
 	}
 		
 }

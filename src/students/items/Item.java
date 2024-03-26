@@ -53,5 +53,12 @@
 		
 		public abstract String toString();
 		
-		public abstract Item copyCons(Item someItem);
+		public Item(Item someItem) {
+			this.age = someItem.age;
+			this.deathAge = someItem.deathAge;
+			this.maturationAge = someItem.maturationAge;
+			this.monetaryValue = someItem.monetaryValue;
+		}
+		
+		public abstract Item copyCons();
 	}

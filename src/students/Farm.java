@@ -1,6 +1,6 @@
 package students;
 
-import java.util.Scanner;
+import java.util.Scanner;	
 import students.items.*;
 
 public class Farm {
@@ -35,24 +35,27 @@ public class Farm {
 			
 			String actionDetect = scanner.nextLine();
 			
-			int xValue = -1;
-			int yValue = -1;
+			int xValue = 0;
+			int yValue = 0;
 			String action = "";
 			
 			if (actionDetect.length() > 1) {
 				
 				action = actionDetect.substring(0,1);
-			    xValue = Integer.parseInt(actionDetect.substring(2, 3));
-			    yValue = Integer.parseInt(actionDetect.substring(4, 5));
+				
+				if (action.equals("s") || action.equals("w") || action.equals("q")) {
+					action = actionDetect.substring(0,1);
+				}
 			} 
 			
 			else {
-				action = actionDetect.substring(0,1);
+				
+				xValue = scanner.nextInt();
+			    yValue = scanner.nextInt();
 			}
 			
-				
-			int row = xValue;
-			int column = yValue;
+			int column = xValue;
+			int row = yValue;
 			
 			if (action.equals("q")) {
 				running = false;
@@ -81,7 +84,7 @@ public class Farm {
 				if (foodSelection.equals("a")) {
 					if (playerBalance >= Apples.getCost()) {
 						if (field.field[row][column] instanceof Soil) {
-							field.plant(row - 1, column - 1, new Apples());
+							field.plant(row, column, new Apples());
 							playerBalance -= Apples.getCost();
 						}
 						else {
@@ -97,7 +100,7 @@ public class Farm {
 				else {
 					if (playerBalance >= Grain.getCost()) {
 						if (field.field[row][column] instanceof Soil) {
-							field.plant(row - 1, column - 1, new Grain());
+							field.plant(row, column, new Grain());
 							playerBalance -= Grain.getCost();
 						}
 						else {

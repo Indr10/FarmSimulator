@@ -21,14 +21,19 @@ public class Weed extends Item{
 		return 0;
 	}
 
-	@Override
-	public Item copyCons(Item someItem) {
+	public Weed(Item someItem) {
+		super(someItem);
 		
 		this.age = someItem.age;
 		this.deathAge = someItem.deathAge;
 		this.maturationAge = someItem.maturationAge;
 		this.monetaryValue = someItem.monetaryValue;
 		
-		return this;
+	}
+	
+	@Override
+	public Weed copyCons() {
+		
+		return new Weed(this);
 	}
 }

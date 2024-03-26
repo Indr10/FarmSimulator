@@ -1,6 +1,6 @@
 package students;
 
-import students.items.*;
+import students.items.*;	
 import java.util.Random;
 
 public class Field {
@@ -83,10 +83,9 @@ public class Field {
 	
 	public Object get(int row, int column) {
 		
-		return field[row][column].copyCons(field[row][column]);
+		return field[row][column].copyCons();
 		
-	}	
-
+	}
 	
 	public void plant(int row, int column, Item item) { 
 		

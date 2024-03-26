@@ -16,14 +16,19 @@ public class UntilledSoil extends Item{
 		return "/";
 	}
 
-	@Override
-	public Item copyCons(Item someItem) {
+	public UntilledSoil(Item someItem) {
+		super(someItem);
 		
 		this.age = someItem.age;
 		this.deathAge = someItem.deathAge;
 		this.maturationAge = someItem.maturationAge;
 		this.monetaryValue = someItem.monetaryValue;
 		
-		return this;
+	}
+	
+	@Override
+	public UntilledSoil copyCons() {
+		
+		return new UntilledSoil(this);
 	}
 }

@@ -16,14 +16,20 @@ public class Soil extends Item{
 		return ".";
 	}
 
-	@Override
-	public Item copyCons(Item someItem) {
+
+	public Soil(Item someItem) {
+		super(someItem);
 		
 		this.age = someItem.age;
 		this.deathAge = someItem.deathAge;
 		this.maturationAge = someItem.maturationAge;
 		this.monetaryValue = someItem.monetaryValue;
 		
-		return this;
+	}
+	
+	@Override
+	public Soil copyCons() {
+		
+		return new Soil(this);
 	}
 }
