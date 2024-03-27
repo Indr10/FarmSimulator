@@ -34,7 +34,6 @@ public class Farm {
 					+ "  q: quit");
 			
 			String actionDetect = scanner.nextLine();
-//			System.out.println(actionDetect);
 			
 			int xValue = 0;
 			int yValue = 0;
@@ -47,24 +46,29 @@ public class Farm {
 						
 			if (action.equals("p") || action.equals("h") || action.equals("t")) {
 				
-				xValue = actionDetectScanner.nextInt();
-			    yValue = actionDetectScanner.nextInt();
+				xValue = actionDetectScanner.nextInt() - 1;
+			    yValue = actionDetectScanner.nextInt() - 1;
 			}
 			
-			int column = xValue - 1;
-			int row = yValue - 1;
+			int column = xValue;
+			int row = yValue;
 			
 			if (action.equals("q")) {
 				running = false;
 				scanner.close();
+				actionDetectScanner.close();
 			}
 			
 			else if (action.equals("w")) {
-				field.tick();			
+				field.tick();		
+				
+				field.tick();
 			}
 			
 			else if (action.equals("s")) {
 				field.getSummary();
+				
+				field.tick();
 			}
 			
 			
@@ -85,12 +89,11 @@ public class Farm {
 							playerBalance -= Apples.getCost();
 						}
 						else {
-							System.out.println("This location isn't free OR isn't tilled");
+							System.out.println("This location isn't free OR isn't tilled \n");
 						}
 					}
 					else {
-						System.out.println("Not enough funds for Apples");
-						field.tick();
+						System.out.println("Not enough funds for Apples \n");
 					}
 				}
 				
@@ -101,39 +104,34 @@ public class Farm {
 							playerBalance -= Grain.getCost();
 						}
 						else {
-							System.out.println("This location isnt free OR it doesn't have Soil");
+							System.out.println("This location isnt free OR it doesn't have Soil \n");
 						}
 					}
 					else {
-						System.out.println("Not enough funds for Grain");
-						field.tick();
+						System.out.println("Not enough funds for Grain \n");
 					}
-				}	
+				}
+				
+				field.tick();
+				
 			}
 			
 			else if (action.equals("h")) {
 				
-//				Item harvestedItem = field.get(row, column);
+				Item harvestedItem = field.get(row, column);
 				
-				if (field.get(row, column) instanceof Grain) {
-					playerBalance += Grain.getCost();
-					field.plant(row, column, new Soil());
-				}
+				playerBalance += harvestedItem.getValue();
+				field.plant(row, column, new Soil());
 				
-				else if (field.get(row, column) instanceof Apples) {
-					playerBalance += Apples.getCost();
-					field.plant(row, column, new Soil());
-				}
+				field.tick();
 				
-				else if (field.get(row, column) instanceof Weed) {
-					playerBalance += Weed.getMonetaryValue();
-					field.plant(row, column, new Soil());
-				}
 			}
 			
 			else if (action.equals("t")) {
 				
-				field.till(row, column);	
+				field.till(row, column);
+				
+				field.tick();
 			}
 		}
 	}

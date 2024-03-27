@@ -81,7 +81,7 @@ public class Field {
 			
 	}
 	
-	public Object get(int row, int column) { // should this return an object or an item?
+	public Item get(int row, int column) { // should this return an object or an item?
 		
 		return field[row][column].copyCons();
 		
