@@ -2,9 +2,9 @@ package students.items;
 
 public class Weed extends Item{
 	
-	final static int MATURATION_AGE = Integer.MAX_VALUE;
-	final static int DEATH_AGE = Integer.MAX_VALUE;
-	final static int MONETARY_VALUE = -1;
+	private final static int MATURATION_AGE = Integer.MAX_VALUE;
+	private final static int DEATH_AGE = Integer.MAX_VALUE;
+	private final static int MONETARY_VALUE = -1;
 	
 	public Weed() {
 		super(MATURATION_AGE, DEATH_AGE, MONETARY_VALUE);

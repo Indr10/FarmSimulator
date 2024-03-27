@@ -2,9 +2,9 @@ package students.items;
 
 public class Soil extends Item{
 	
-	final static int MATURATION_AGE = Integer.MAX_VALUE;
-	final static int DEATH_AGE = Integer.MAX_VALUE;
-	final static int MONETARY_VALUE = 0;
+	private final static int MATURATION_AGE = Integer.MAX_VALUE;
+	private final static int DEATH_AGE = Integer.MAX_VALUE;
+	private final static int MONETARY_VALUE = 0;
 	
 	public Soil() {
 		super(MATURATION_AGE, DEATH_AGE, MONETARY_VALUE);
@@ -24,7 +24,6 @@ public class Soil extends Item{
 		this.deathAge = someItem.deathAge;
 		this.maturationAge = someItem.maturationAge;
 		this.monetaryValue = someItem.monetaryValue;
-		
 	}
 	
 	@Override

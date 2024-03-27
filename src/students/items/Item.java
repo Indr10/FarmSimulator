@@ -2,10 +2,10 @@
 	
 	public abstract class Item{
 		
-		int age;
-		int maturationAge;
-		int deathAge;
-		int monetaryValue;	
+		protected int age;
+		protected int maturationAge;
+		protected int deathAge;
+		protected int monetaryValue;	
 		
 		public Item(int maturationAge, int deathAge, int monetaryValue) {
 			this.age = 0;
@@ -60,5 +60,5 @@
 			this.monetaryValue = someItem.monetaryValue;
 		}
 		
-		public abstract Item copyCons();
+		public abstract Item copyCons();		
 	}

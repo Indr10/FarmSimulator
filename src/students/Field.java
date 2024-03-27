@@ -5,9 +5,9 @@ import java.util.Random;
 
 public class Field {
 	
-	int height;
-	int width;
-	Item [][] field;
+	private int height;
+	private int width;
+	private Item [][] field;
 	
 			
 	public Field(int height, int width){
@@ -81,7 +81,7 @@ public class Field {
 			
 	}
 	
-	public Object get(int row, int column) {
+	public Object get(int row, int column) { // should this return an object or an item?
 		
 		return field[row][column].copyCons();
 		

@@ -4,9 +4,9 @@ public class Apples extends Food{
 	
 	private static int instanceCount = 0;
 
-	final static int MATURATION_AGE = 3;
-	final static int DEATH_AGE = 5;
-	final static int MONETARY_VALUE = 3;
+	private final static int MATURATION_AGE = 3;
+	private final static int DEATH_AGE = 5;
+	private final static int MONETARY_VALUE = 3;
 	private final static int COST = 2;
 	
 	

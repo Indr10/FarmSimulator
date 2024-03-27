@@ -34,28 +34,25 @@ public class Farm {
 					+ "  q: quit");
 			
 			String actionDetect = scanner.nextLine();
+//			System.out.println(actionDetect);
 			
 			int xValue = 0;
 			int yValue = 0;
 			String action = "";
 			
-			if (actionDetect.length() > 1) {
-				
-				action = actionDetect.substring(0,1);
-				
-				if (action.equals("s") || action.equals("w") || action.equals("q")) {
-					action = actionDetect.substring(0,1);
-				}
-			} 
+			Scanner actionDetectScanner = new Scanner(actionDetect);
+			action = actionDetectScanner.next();
 			
-			else {
+			
+						
+			if (action.equals("p") || action.equals("h") || action.equals("t")) {
 				
-				xValue = scanner.nextInt();
-			    yValue = scanner.nextInt();
+				xValue = actionDetectScanner.nextInt();
+			    yValue = actionDetectScanner.nextInt();
 			}
 			
-			int column = xValue;
-			int row = yValue;
+			int column = xValue - 1;
+			int row = yValue - 1;
 			
 			if (action.equals("q")) {
 				running = false;
@@ -83,7 +80,7 @@ public class Farm {
 				
 				if (foodSelection.equals("a")) {
 					if (playerBalance >= Apples.getCost()) {
-						if (field.field[row][column] instanceof Soil) {
+						if (field.get(row, column) instanceof Soil) {
 							field.plant(row, column, new Apples());
 							playerBalance -= Apples.getCost();
 						}
@@ -99,7 +96,7 @@ public class Farm {
 				
 				else {
 					if (playerBalance >= Grain.getCost()) {
-						if (field.field[row][column] instanceof Soil) {
+						if (field.get(row, column) instanceof Soil) {
 							field.plant(row, column, new Grain());
 							playerBalance -= Grain.getCost();
 						}
@@ -116,19 +113,21 @@ public class Farm {
 			
 			else if (action.equals("h")) {
 				
-				if (field.field[row][column] instanceof Grain) {
+//				Item harvestedItem = field.get(row, column);
+				
+				if (field.get(row, column) instanceof Grain) {
 					playerBalance += Grain.getCost();
-					field.field[row][column] = new Soil();
+					field.plant(row, column, new Soil());
 				}
 				
-				else if (field.field[row][column] instanceof Apples) {
+				else if (field.get(row, column) instanceof Apples) {
 					playerBalance += Apples.getCost();
-					field.field[row][column] = new Soil();
+					field.plant(row, column, new Soil());
 				}
 				
-				else if (field.field[row][column] instanceof Weed) {
+				else if (field.get(row, column) instanceof Weed) {
 					playerBalance += Weed.getMonetaryValue();
-					field.field[row][column] = new Soil();
+					field.plant(row, column, new Soil());
 				}
 			}
 			

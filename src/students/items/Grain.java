@@ -4,9 +4,9 @@ public class Grain extends Food{
 	
 	private static int instanceCount = 0;
 
-	final static int MATURATION_AGE = 2;
-	final static int DEATH_AGE = 6;
-	final static int MONETARY_VALUE = 2;
+	private final static int MATURATION_AGE = 2;
+	private final static int DEATH_AGE = 6;
+	private final static int MONETARY_VALUE = 2;
 	private final static int COST = 1;
 	
 	public Grain() {
