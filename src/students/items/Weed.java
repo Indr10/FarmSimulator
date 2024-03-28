@@ -26,7 +26,6 @@ public class Weed extends Item{
 		
 		this.age = someItem.age;
 		this.deathAge = someItem.deathAge;
-		this.maturationAge = someItem.maturationAge;
 		this.monetaryValue = someItem.monetaryValue;
 		
 	}

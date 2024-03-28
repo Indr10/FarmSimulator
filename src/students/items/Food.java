@@ -15,4 +15,14 @@ public abstract class Food extends Item{
 		this.monetaryValue = someItem.monetaryValue;
 	}
 	
+	public int getValue() {
+		if (age >= maturationAge) {
+			return monetaryValue;
+		}
+				
+		else {
+			return 0;
+		}
+	}
+	
 }

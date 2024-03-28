@@ -81,7 +81,7 @@ public class Field {
 			
 	}
 	
-	public Item get(int row, int column) { // should this return an object or an item?
+	public Item get(int row, int column) { 
 		
 		return field[row][column].copyCons();
 		
@@ -99,9 +99,7 @@ public class Field {
 		
 		for (int i = 0; i < height; i++) {
 			for (int j = 0; j < width; j++) {
-				
 				value += field[i][j].getValue();
-				
 			}
 		}
 		return value;

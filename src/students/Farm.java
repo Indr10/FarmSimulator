@@ -5,7 +5,7 @@ import students.items.*;
 
 public class Farm {
 	
-	int playerBalance;
+	private int playerBalance;
 	Field field;
 	
 	public Farm(int fieldWidth, int fieldHeight, int startingFunds) {
@@ -60,13 +60,12 @@ public class Farm {
 			}
 			
 			else if (action.equals("w")) {
-				field.tick();		
+				
 			}
 			
 			else if (action.equals("s")) {
 				System.out.println(field.getSummary());
 				
-				field.tick();
 			}
 			
 			
@@ -108,29 +107,24 @@ public class Farm {
 					else {
 						System.out.println("Not enough funds for Grain \n");
 					}
-				}
-				
-				field.tick();
-				
+				}			
 			}
 			
 			else if (action.equals("h")) {
 				
 				Item harvestedItem = field.get(row, column);
 				
-				playerBalance += harvestedItem.getValue();
-				field.plant(row, column, new Soil());
+				playerBalance += harvestedItem.getValue();	
 				
-				field.tick();
+				field.plant(row, column, new Soil());
 				
 			}
 			
 			else if (action.equals("t")) {
 				
-				field.till(row, column);
-				
-				field.tick();
+				field.till(row, column);	
 			}
+			field.tick();
 		}
 	}
 }

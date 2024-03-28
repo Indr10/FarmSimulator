@@ -21,7 +21,6 @@ public class UntilledSoil extends Item{
 		
 		this.age = someItem.age;
 		this.deathAge = someItem.deathAge;
-		this.maturationAge = someItem.maturationAge;
 		this.monetaryValue = someItem.monetaryValue;
 		
 	}

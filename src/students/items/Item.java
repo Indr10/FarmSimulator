@@ -2,7 +2,7 @@
 	
 	public abstract class Item{
 		
-		protected int age;
+		public int age;
 		protected int maturationAge;
 		protected int deathAge;
 		protected int monetaryValue;	
@@ -32,9 +32,16 @@
 			if (age >= maturationAge) {
 				return monetaryValue;
 			}
+			
+			else if (this instanceof Weed) {
+				
+				return monetaryValue;
+			}
+					
 			else {
 				return 0;
 			}
+			
 		}
 		
 		public boolean equals (Object otherObj) {
