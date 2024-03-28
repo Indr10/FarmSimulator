@@ -140,13 +140,14 @@ public class Field {
 				}							
 			}		
 		}		
-		return String.format("Apples: 	%d%n", applesCount) + 
+		return  String.format("Apples: 	%d%n", applesCount) + 
 				String.format("Grain: 		%d%n", grainCount) +
 				String.format("Soil: 		%d%n", soilCount) +
 				String.format("Untilled: 	%d%n", untilledCount) +
 				String.format("Weed:		%d%n", weedCount) +
 				String.format("For a total of:	$%d%n", totalPrice ) +
 				String.format("Total apples created: %d%n", Apples.getGenerationCount()) +
-				String.format("Total grain created: %d%n", Grain.getGenerationCount());		
+				String.format("Total grain created: %d%n", Grain.getGenerationCount());	
+		
 	}
 }

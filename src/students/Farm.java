@@ -61,12 +61,10 @@ public class Farm {
 			
 			else if (action.equals("w")) {
 				field.tick();		
-				
-				field.tick();
 			}
 			
 			else if (action.equals("s")) {
-				field.getSummary();
+				System.out.println(field.getSummary());
 				
 				field.tick();
 			}
