@@ -21,19 +21,29 @@ public class Farm {
 		boolean running = true;
 		
 		while (running) {
-			System.out.println(field.toString());
-			
-			System.out.println("Bank balance: $ "
-					+ this.playerBalance
-					+ "\n\nEnter your next action: \n"
-					+ "  t x y: till\n"
-					+ "  h x y: harvest\n"
-					+ "  p x y: plant\n"
-					+ "  s: field summary\n"
-					+ "  w: wait\n"
-					+ "  q: quit");
-			
-			String actionDetect = scanner.nextLine();
+						
+			String actionDetect;
+			do {
+			    System.out.println(field.toString());
+			    System.out.println("Bank balance: $ "
+			                    + this.playerBalance
+			                    + "\n\nEnter your next action: \n"
+			                    + "  t x y: till\n"
+			                    + "  h x y: harvest\n"
+			                    + "  p x y: plant\n"
+			                    + "  s: field summary\n"
+			                    + "  w: wait\n"
+			                    + "  q: quit");
+			    actionDetect = scanner.nextLine();
+			    
+			    if (!actionDetect.equals("t") && !actionDetect.equals("h") && !actionDetect.equals("p") &&
+			            !actionDetect.equals("s") && !actionDetect.equals("w") && !actionDetect.equals("q")) {
+			    	System.out.println("\nPlease enter a valid action!\n");	
+			    }
+			    
+			} while (!actionDetect.equals("t") && !actionDetect.equals("h") && !actionDetect.equals("p") &&
+			            !actionDetect.equals("s") && !actionDetect.equals("w") && !actionDetect.equals("q"));
+
 			
 			int xValue = 0;
 			int yValue = 0;
