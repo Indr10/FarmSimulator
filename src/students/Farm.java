@@ -23,6 +23,14 @@ public class Farm {
 		while (running) {
 						
 			String actionDetect;
+			
+			boolean invalidInput = true;
+			
+			int xValue = 0;
+			int yValue = 0;
+			String action = "";
+			
+			// ATTEMPT #1 
 			do {
 			    System.out.println(field.toString());
 			    System.out.println("Bank balance: $ "
@@ -41,32 +49,39 @@ public class Farm {
 			    	System.out.println("\nPlease enter a valid action!\n");	
 			    }
 			    
-			} while (!actionDetect.equals("t") && !actionDetect.equals("h") && !actionDetect.equals("p") &&
-			            !actionDetect.equals("s") && !actionDetect.equals("w") && !actionDetect.equals("q"));
-
-			
-			int xValue = 0;
-			int yValue = 0;
-			String action = "";
-			
-			Scanner actionDetectScanner = new Scanner(actionDetect);
-			action = actionDetectScanner.next();
-			
-			
-						
-			if (action.equals("p") || action.equals("h") || action.equals("t")) {
+			    
+			    Scanner actionDetectScanner = new Scanner(actionDetect);
+				action = actionDetectScanner.next();
 				
-				xValue = actionDetectScanner.nextInt() - 1;
-			    yValue = actionDetectScanner.nextInt() - 1;
-			}
-			
+				if (action.equals("p") || action.equals("h") || action.equals("t")) {	
+					if (actionDetectScanner.hasNextInt()) {
+						xValue = actionDetectScanner.nextInt() - 1;
+					}
+						if (actionDetectScanner.hasNextInt()) {
+							yValue = actionDetectScanner.nextInt() - 1;
+							System.out.println("Please enter a valid x and y coordinate (numbers).");
+							invalidInput = true;
+						}
+			    
+				    if (xValue < 0 || xValue >= field.getHeight() || yValue < 0 || yValue >= field.getWidth()) {
+			            System.out.println("Please enter a valid coordinates (within the field).");
+			            invalidInput = true;
+			        } else {
+			            invalidInput = false;
+			        }
+			    } else {
+			        invalidInput = false;
+			    }
+			    actionDetectScanner.close();
+			    
+			} while (invalidInput); 
+						
 			int column = xValue;
 			int row = yValue;
 			
 			if (action.equals("q")) {
 				running = false;
 				scanner.close();
-				actionDetectScanner.close();
 			}
 			
 			else if (action.equals("w")) {

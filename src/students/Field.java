@@ -148,4 +148,12 @@ public class Field {
 				String.format("Total grain created: %d%n", Grain.getGenerationCount());	
 		
 	}
+
+	int getHeight() {
+		return height;
+	}
+
+	int getWidth() {
+		return width;
+	}
 }
