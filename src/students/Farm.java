@@ -30,51 +30,57 @@ public class Farm {
 			int yValue = 0;
 			String action = "";
 			
-			// ATTEMPT #1 
+			// ATTEMP #2 - WORKS
 			do {
+			    invalidInput = true; 
+
 			    System.out.println(field.toString());
-			    System.out.println("Bank balance: $ "
-			                    + this.playerBalance
-			                    + "\n\nEnter your next action: \n"
-			                    + "  t x y: till\n"
-			                    + "  h x y: harvest\n"
-			                    + "  p x y: plant\n"
-			                    + "  s: field summary\n"
-			                    + "  w: wait\n"
-			                    + "  q: quit");
+			    System.out.println("Bank balance: $ " + this.playerBalance
+			            + "\n\nEnter your next action: \n"
+			            + "  t x y: till\n"
+			            + "  h x y: harvest\n"
+			            + "  p x y: plant\n"
+			            + "  s: field summary\n"
+			            + "  w: wait\n"
+			            + "  q: quit");
 			    actionDetect = scanner.nextLine();
 			    
-			    if (!actionDetect.equals("t") && !actionDetect.equals("h") && !actionDetect.equals("p") &&
-			            !actionDetect.equals("s") && !actionDetect.equals("w") && !actionDetect.equals("q")) {
-			    	System.out.println("\nPlease enter a valid action!\n");	
-			    }
-			    
-			    
 			    Scanner actionDetectScanner = new Scanner(actionDetect);
-				action = actionDetectScanner.next();
-				
-				if (action.equals("p") || action.equals("h") || action.equals("t")) {	
-					if (actionDetectScanner.hasNextInt()) {
-						xValue = actionDetectScanner.nextInt() - 1;
-					}
-						if (actionDetectScanner.hasNextInt()) {
-							yValue = actionDetectScanner.nextInt() - 1;
-							System.out.println("Please enter a valid x and y coordinate (numbers).");
-							invalidInput = true;
-						}
-			    
-				    if (xValue < 0 || xValue >= field.getHeight() || yValue < 0 || yValue >= field.getWidth()) {
-			            System.out.println("Please enter a valid coordinates (within the field).");
-			            invalidInput = true;
-			        } else {
-			            invalidInput = false;
+			    action = actionDetectScanner.next();
+
+			    if (action.equals("p") || action.equals("h") || action.equals("t")) {
+			        
+			    	if (actionDetectScanner.hasNextInt()) {
+			            xValue = actionDetectScanner.nextInt() - 1;
+			            
+			            if (actionDetectScanner.hasNextInt()) {
+			                yValue = actionDetectScanner.nextInt() - 1;
+			                
+			                if (xValue < 0 || xValue >= field.getHeight() || yValue < 0 || yValue >= field.getWidth()) {
+			                    System.out.println("Invalid coordinates. Please enter coordinates within the field.\n");
+			                } 
+			                else {
+			                    invalidInput = false;
+			                }
+			            } 
+			            else {
+			                System.out.println("Please enter a valid integer for the y coordinate.\n");
+			            }
+			        } 
+			    	else {
+			            System.out.println("Please enter a valid integer for the x coordinate.\n");
 			        }
-			    } else {
-			        invalidInput = false;
+			    } 
+			    else if (!action.equals("s") && !action.equals("w") && !action.equals("q")) {
+			        System.out.println("\nPlease enter a valid action!\n");
+			    } 
+			    else {
+			        invalidInput = false; 
 			    }
-			    actionDetectScanner.close();
-			    
-			} while (invalidInput); 
+
+			    actionDetectScanner.close(); 
+
+			} while (invalidInput);
 						
 			int column = xValue;
 			int row = yValue;
