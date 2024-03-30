@@ -16,7 +16,7 @@ public class Weed extends Item{
 		return "#";
 	}
 
-	public static int getMonetaryValue() {
+	public int getMonetaryValue() {
 		
 		return 0;
 	}

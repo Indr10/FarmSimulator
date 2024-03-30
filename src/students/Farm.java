@@ -145,6 +145,8 @@ public class Farm {
 				
 				Item harvestedItem = field.get(row, column);
 				
+				// what if they harvest soil or un-tilled soil?
+				
 				playerBalance += harvestedItem.getValue();	
 				
 				field.plant(row, column, new Soil());

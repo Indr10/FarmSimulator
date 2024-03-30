@@ -2,11 +2,13 @@
 	
 	public abstract class Item{
 		
-		public int age;
+		// Item attributes declaration
+		protected int age;
 		protected int maturationAge;
 		protected int deathAge;
 		protected int monetaryValue;	
 		
+		// Constructor to initialize item with its attributes
 		public Item(int maturationAge, int deathAge, int monetaryValue) {
 			this.age = 0;
 			this.maturationAge = maturationAge;
@@ -15,35 +17,43 @@
 			
 		}
 		
+		//Increment the age of the item
 		public void tick() {
 			age++;
 		}
 		
+		//Set the age of the item
 		public void setAge(int age) {
 			this.age = age;
 		}
 		
+		//set the age of the item
 		public boolean died() {
 			return age > deathAge;
 		}
 		
+		// Get the monetary value of the item based on its age and type
 		public int getValue() {
 			
 			if (age >= maturationAge) {
 				return monetaryValue;
 			}
 			
+			// Weed has infinite age and maturation age so it needs a specific condition
 			else if (this instanceof Weed) {
 				
 				return monetaryValue;
 			}
-					
+			
+			// food item is not mature
 			else {
 				return 0;
 			}
 			
 		}
 		
+		// Checks the current item to another object based on their properties, returns true if they are
+		@Override
 		public boolean equals (Object otherObj) {
 			
 			if (this.age == ((Item)otherObj).age
@@ -58,8 +68,10 @@
 			}
 		}
 		
+		// Abstract method that can be implemented by subclasses to create a field
 		public abstract String toString();
 		
+		// Copy constructor to create a deep copy of an Item object
 		public Item(Item someItem) {
 			this.age = someItem.age;
 			this.deathAge = someItem.deathAge;
@@ -67,5 +79,6 @@
 			this.monetaryValue = someItem.monetaryValue;
 		}
 		
+		// Abstract method that is implemented by subclasses for creating a deep copy of an item
 		public abstract Item copyCons();		
 	}
