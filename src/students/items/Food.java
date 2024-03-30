@@ -2,10 +2,12 @@ package students.items;
 
 public abstract class Food extends Item{
 
+	// Constructor to initialize food items with default values
 	public Food(int maturationAge, int deathAge, int monetaryValue) {
 		super(maturationAge, deathAge, monetaryValue);
 	}
-
+	
+	// Copy constructor to create a deep copy of a Food object
 	public Food(Item someItem) {
 		super(someItem);
 		
@@ -14,15 +16,4 @@ public abstract class Food extends Item{
 		this.maturationAge = someItem.maturationAge;
 		this.monetaryValue = someItem.monetaryValue;
 	}
-	
-	public int getValue() {
-		if (age >= maturationAge) {
-			return monetaryValue;
-		}
-				
-		else {
-			return 0;
-		}
-	}
-	
 }

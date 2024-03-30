@@ -1,6 +1,6 @@
 package students;
 
-import java.util.Scanner;	
+import java.util.Scanner;		
 import students.items.*;
 
 public class Farm {
