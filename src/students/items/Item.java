@@ -68,7 +68,7 @@
 			}
 		}
 		
-		// Abstract method that can be implemented by subclasses to create a field
+		// Abstract method that can be implemented by subclasses for their respective function
 		public abstract String toString();
 		
 		// Copy constructor to create a deep copy of an Item object
