@@ -5,7 +5,7 @@ public class Apples extends Food{
 	// Variable to count the number of instances of Apples
 	private static int instanceCount = 0;
 
-	// FINAL Apple attributes declaration
+	// FINAL Apples attributes declaration
 	private final static int MATURATION_AGE = 3;
 	private final static int DEATH_AGE = 5;
 	private final static int MONETARY_VALUE = 3;
@@ -24,7 +24,7 @@ public class Apples extends Food{
 		return instanceCount;
 	}
 
-	// Override the toString() method to show the visual representation of Apples based on their age
+	// Override the toString() method to show the visual representation of Apples based on its age
 	@Override
 	public String toString() {
 		if (age < maturationAge) {
@@ -52,7 +52,7 @@ public class Apples extends Food{
 	;
 	}
 	
-	// Override the copyCons() method to create a deep copy of the Apples object
+	// Override the copyCons() method to return a deep copy of the Apples object
 	@Override
 	public Apples copyCons() {
 		
