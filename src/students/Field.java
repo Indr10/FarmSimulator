@@ -71,6 +71,14 @@ public class Field {
 				
 				// increase the age of all Grain instances
 				if (field[i][j] instanceof Grain || field[i][j] instanceof Apples) {
+					
+					// checks if good item died
+					if (field[i][j].died()) {
+						
+						// makes that location untilledSoil
+						field[i][j] = new UntilledSoil();
+					}
+						
 					field[i][j].tick();			
 				}
 				
@@ -85,12 +93,6 @@ public class Field {
 						
 						field[i][j] = new Weed();
 					}
-				}
-				// checks if good item died
-				else if (field[i][j].died() == true) {
-					
-					// makes that location untilledSoil
-					field[i][j] = new UntilledSoil();
 				}
 			}			
 		}

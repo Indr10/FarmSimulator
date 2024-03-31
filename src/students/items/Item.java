@@ -17,17 +17,17 @@
 			
 		}
 		
-		//Increment the age of the item
+		// Increment the age of the item
 		public void tick() {
 			age++;
 		}
 		
-		//Set the age of the item
+		// Set the age of the item
 		public void setAge(int age) {
 			this.age = age;
 		}
 		
-		//set the age of the item
+		// checks if the food item is dead or alive, returning true if dead
 		public boolean died() {
 			return age > deathAge;
 		}
