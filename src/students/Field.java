@@ -64,39 +64,39 @@ public class Field {
 	
 	// Method to age food items in the field, remove dead food items and generate weed
 	public void tick() {
-		
-		// iterate through the field
-		for (int i = 0; i < height; i++) {
-			for (int j = 0; j < width; j++) {	
-				
-				// increase the age of all Grain instances
-				if (field[i][j] instanceof Grain || field[i][j] instanceof Apples) {
-					
-					// checks if good item died
-					if (field[i][j].died()) {
-						
-						// makes that location untilledSoil
-						field[i][j] = new UntilledSoil();
-					}
-						
-					field[i][j].tick();			
-				}
-				
-				// 20% chance to generate Weed in a Soil instance in the field
-				else if (field[i][j] instanceof Soil) {
-					
-					Random rand = new Random();
-					
-					int weedChance = rand.nextInt(10);
-					
-					if (weedChance <=2 ) { // 20%
-						
-						field[i][j] = new Weed();
-					}
-				}
-			}			
-		}
+
+	    // iterate through the field
+	    for (int i = 0; i < height; i++) {
+	        for (int j = 0; j < width; j++) {    
+
+	            // increase the age of all Grain instances
+	            if (field[i][j] instanceof Grain || field[i][j] instanceof Apples) {
+
+	                // checks if food item died
+	                if (field[i][j].died()) {
+
+	                    // makes that location untilledSoil
+	                    field[i][j] = new UntilledSoil();
+	                }
+
+	                field[i][j].tick();            
+	            }
+	        }           
+	    }
+	 // 20% chance to generate Weed in a Soil instance in the field
+        Random rand = new Random();
+
+        if (rand.nextInt(5) == 0) { // 20% chance random number is 0
+
+            // Generate random coordinates for the weed
+            int x = rand.nextInt(height); // random x coordinate on the field
+            int y = rand.nextInt(width);  // random y coordinate on the field
+
+            // Place the weed in the randomly chosen location
+            field[x][y] = new Weed();
+        }
 	}
+
 	
 	// Till the soil at a specific location
 	public void till(int row, int column) {
