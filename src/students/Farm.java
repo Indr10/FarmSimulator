@@ -145,12 +145,15 @@ public class Farm {
 				
 				Item harvestedItem = field.get(row, column);
 				
-				// what if they harvest soil or un-tilled soil?
+				if (harvestedItem instanceof Apples && harvestedItem instanceof Grain) {
 				
-				playerBalance += harvestedItem.getValue();	
+					playerBalance += harvestedItem.getValue();	
 				
-				field.plant(row, column, new Soil());
+					field.plant(row, column, new Soil());}
 				
+				else {
+					System.out.println("You cannot harvest this object");
+				}
 			}
 			
 			else if (action.equals("t")) {
