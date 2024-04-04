@@ -20,8 +20,15 @@ public class Farm {
 		Scanner scanner = new Scanner(System.in);
 		boolean running = true;
 		
+		// prompts the user to name the Farm
+		System.out.print("Please name your Farm: \n");
+		String farmName = scanner.nextLine();
+			
 		while (running) {
-						
+			
+			// Prints the Farm name
+			System.out.println(farmName + "\n");
+								
 			String actionDetect;
 			
 			boolean invalidInput = true;
