@@ -7,12 +7,12 @@ import students.items.Weed;
 public class ClearWeed extends Shop{
 	
 	private static final String NAME = "Clear Weed";
-	private static final String effect = "All weeds on the farm have been removed";
+	private static final String EFFECT = "All weeds on the farm have been removed";
 	private static final int COST = 10;
 	Field field;
 
 	public ClearWeed() {
-		super(NAME, COST, effect);
+		super(NAME, COST, EFFECT);
 		
 	}
 	
@@ -26,7 +26,7 @@ public class ClearWeed extends Shop{
 			}
 		}
 		
-		System.out.println("You used " + NAME + "\n" + effect);
+		System.out.println("You used " + NAME + "\n" + EFFECT);
 		
 	}
 
