@@ -1,7 +1,8 @@
 package students;
 
-import java.util.Scanner;		
+import java.util.Scanner;			
 import students.items.*;
+import ShopImplementation.*;
 
 public class Farm {
 	
@@ -21,13 +22,13 @@ public class Farm {
 		boolean running = true;
 		
 		// prompts the user to name the Farm
-		System.out.print("Please name your Farm: \n");
-		String farmName = scanner.nextLine();
+//		System.out.print("Please name your Farm: \n");
+//		String farmName = scanner.nextLine();
 			
 		while (running) {
 			
 			// Prints the Farm name
-			System.out.println(farmName + "\n");
+//			System.out.println(farmName + "\n");
 								
 			String actionDetect;
 			
@@ -48,6 +49,7 @@ public class Farm {
 			            + "  h x y: harvest\n"
 			            + "  p x y: plant\n"
 			            + "  s: field summary\n"
+			            + "  m: market\n"
 			            + "  w: wait\n"
 			            + "  q: quit");
 			    actionDetect = scanner.nextLine();
@@ -78,7 +80,7 @@ public class Farm {
 			            System.out.println("Please enter a valid integer for the x coordinate.\n");
 			        }
 			    } 
-			    else if (!action.equals("s") && !action.equals("w") && !action.equals("q")) {
+			    else if (!action.equals("s") && !action.equals("w") && !action.equals("q") && !action.equals("m")) {
 			        System.out.println("\nPlease enter a valid action!\n");
 			    } 
 			    else {
@@ -108,6 +110,9 @@ public class Farm {
 			
 			
 			else if (action.equals("p")) {
+				
+				System.out.println(row);
+				System.out.println(column);
 				
 				System.out.println("Enter: \n"
 						+ " - 'a' to buy an apple for $"
@@ -152,7 +157,7 @@ public class Farm {
 				
 				Item harvestedItem = field.get(row, column);
 				
-				if (harvestedItem instanceof Apples && harvestedItem instanceof Grain) {
+				if (harvestedItem instanceof Apples || harvestedItem instanceof Grain) {
 				
 					playerBalance += harvestedItem.getValue();	
 				
@@ -166,6 +171,46 @@ public class Farm {
 			else if (action.equals("t")) {
 				
 				field.till(row, column);	
+			}
+			
+			else if (action.equals("m")) {
+				System.out.println("------ Market Place ------ \n"
+						+ "What would you like to buy?\n");
+				
+				System.out.println("Enter: \n"
+						+ " - 's' to buy steriods for $"
+						+ "PlaceHolder\n"
+						+ " - 'mr' to buy magic Rain for $"
+						+ "PlaceHolder\n"
+						+ " - 'c' to clear all weed $"
+						+ "PlaceHolder\n"
+						+ " - 'ha' to harvest all mature crops $"
+						+ "PlaceHolder\n");
+				
+				String shopSelection = scanner.nextLine();
+					
+				if (shopSelection.equals("s")) {
+					
+				}
+				
+				else if (shopSelection.equals("mr")) {
+					
+				}
+				
+				else if (shopSelection.equals("c")) {
+					
+					ClearWeed clear = new ClearWeed();
+					
+					ClearWeed.clear(this.field);
+					
+					playerBalance -= clear.getCost();
+					
+				}
+				
+				else if (shopSelection.equals("ha")) {
+					
+				}
+				
 			}
 			field.tick();
 		}
