@@ -110,10 +110,7 @@ public class Farm {
 			
 			
 			else if (action.equals("p")) {
-				
-				System.out.println(row);
-				System.out.println(column);
-				
+								
 				System.out.println("Enter: \n"
 						+ " - 'a' to buy an apple for $"
 						+ Apples.getCost()
@@ -177,23 +174,23 @@ public class Farm {
 				System.out.println("------ Market Place ------ \n"
 						+ "What would you like to buy?\n");
 				
-				System.out.println("Enter: \n"
-						+ " - 's' to buy steriods for $"
-						+ "PlaceHolder\n"
-						+ " - 'mr' to buy magic Rain for $"
-						+ "PlaceHolder\n"
-						+ " - 'c' to clear all weed $"
-						+ "PlaceHolder\n"
-						+ " - 'ha' to harvest all mature crops $"
+				System.out.println("Enter: "
+						+ " \n- 'ms' to buy magic Serum for $"
+						+ MagicSerum.getCost()
+						+ " \n- 'c' to clear all weed $"
+						+ ClearWeed.getCost()
+						+ " \n- 'ha' to harvest all mature crops $"
 						+ "PlaceHolder\n");
 				
 				String shopSelection = scanner.nextLine();
-					
-				if (shopSelection.equals("s")) {
-					
-				}
 				
-				else if (shopSelection.equals("mr")) {
+				if (shopSelection.equals("ms")) {
+					
+					MagicSerum magicSerum = new MagicSerum();
+					
+					magicSerum.magicSerum();
+					
+					playerBalance -= MagicSerum.getCost();
 					
 				}
 				
@@ -201,9 +198,9 @@ public class Farm {
 					
 					ClearWeed clear = new ClearWeed();
 					
-					ClearWeed.clear(this.field);
+					clear.clear(this.field);
 					
-					playerBalance -= clear.getCost();
+					playerBalance -= ClearWeed.getCost();
 					
 				}
 				
