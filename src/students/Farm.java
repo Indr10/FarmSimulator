@@ -108,7 +108,6 @@ public class Farm {
 				
 			}
 			
-			
 			else if (action.equals("p")) {
 								
 				System.out.println("Enter: \n"
@@ -180,7 +179,7 @@ public class Farm {
 						+ " \n- 'c' to clear all weed $"
 						+ ClearWeed.getCost()
 						+ " \n- 'ha' to harvest all mature crops $"
-						+ "PlaceHolder\n");
+						+ HarvestAll.getCost());
 				
 				String shopSelection = scanner.nextLine();
 				
@@ -205,6 +204,14 @@ public class Farm {
 				}
 				
 				else if (shopSelection.equals("ha")) {
+					
+					HarvestAll harvestAll = new HarvestAll();
+					
+					harvestAll.harvestAll(this.field);
+					
+					playerBalance -= HarvestAll.getCost();
+					
+					playerBalance += HarvestAll.getHarvestValue();
 					
 				}
 				
