@@ -16,7 +16,7 @@ public class ClearWeed extends Shop{
 		
 	}
 	
-	public static void clear (Field field) {
+	public void clear (Field field) {
 		
 		for (int i = 0; i < field.getHeight(); i++) {
 			for (int j = 0; j < field.getWidth(); j++) {
@@ -30,7 +30,7 @@ public class ClearWeed extends Shop{
 		
 	}
 
-	public int getCost() {
+	public static int getCost() {
 		return COST;
 	}
 }
