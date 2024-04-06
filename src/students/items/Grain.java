@@ -6,9 +6,9 @@ public class Grain extends Food{
 	private static int instanceCount = 0;
 
 	// FINAL Grain attributes declaration
-	private final static int MATURATION_AGE = 2;
-	private final static int DEATH_AGE = 6;
-	private final static int MONETARY_VALUE = 2;
+	private static int MATURATION_AGE = 2;
+	private static int DEATH_AGE = 6;
+	private static int MONETARY_VALUE = 2;
 	private final static int COST = 1;
 	
 	// Constructor to initialize Grain with default values and increment instance count

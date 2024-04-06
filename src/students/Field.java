@@ -179,10 +179,12 @@ public class Field {
 		
 	}
 
+	// get height of the field
 	public int getHeight() {
 		return height;
 	}
 
+	// get width of the field
 	public int getWidth() {
 		return width;
 	}

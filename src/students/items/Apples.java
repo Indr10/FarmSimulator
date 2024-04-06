@@ -6,9 +6,9 @@ public class Apples extends Food{
 	private static int instanceCount = 0;
 
 	// FINAL Apples attributes declaration
-	private final static int MATURATION_AGE = 3;
-	private final static int DEATH_AGE = 5;
-	private final static int MONETARY_VALUE = 3;
+	private static int MATURATION_AGE = 3;
+	private static int DEATH_AGE = 5;
+	private static int MONETARY_VALUE = 3;
 	private final static int COST = 2;
 	
 	// Constructor to initialize Apples with default values and increment instance count
