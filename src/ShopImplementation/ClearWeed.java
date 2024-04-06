@@ -26,7 +26,7 @@ public class ClearWeed extends Shop{
 			}
 		}
 		
-		System.out.println("You used " + NAME + "\n" + EFFECT);
+		System.out.println("You used " + NAME + "\n" + EFFECT + "\n");
 		
 	}
 

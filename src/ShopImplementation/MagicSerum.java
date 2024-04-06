@@ -1,6 +1,5 @@
 package ShopImplementation;
 
-import students.Field;	
 import students.items.Grain;
 import students.items.Apples;
 
@@ -11,7 +10,6 @@ public class MagicSerum extends Shop{
 										+ "Sell value of all crops have been increased by 1 \n"
 										+ "Death age of all crops have been reduced by 1";
 	private static final int COST = 10;
-	Field field;
 	
 		public MagicSerum() {
 		super(NAME, COST, EFFECT);
@@ -33,7 +31,7 @@ public class MagicSerum extends Shop{
 		
 		Grain.setMONETARY_VALUE(Grain.getMONETARY_VALUE() + 1);
 		
-		System.out.println("You used " + NAME + "\n" + EFFECT);
+		System.out.println("You used " + NAME + "\n" + EFFECT+ "\n");
 
 	}
 	
