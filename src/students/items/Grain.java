@@ -57,4 +57,28 @@ public class Grain extends Food{
 		
 		return new Grain(this);
 	}
+
+	public static int getMATURATION_AGE() {
+		return MATURATION_AGE;
+	}
+
+	public static void setMATURATION_AGE(int mATURATION_AGE) {
+		MATURATION_AGE = mATURATION_AGE;
+	}
+	
+    public static void setDEATH_AGE(int deathAge) {
+        DEATH_AGE = deathAge;
+    }
+
+    public static void setMONETARY_VALUE(int monetaryValue) {
+        MONETARY_VALUE = monetaryValue;
+    }
+    
+    public static int getDEATH_AGE() {
+        return DEATH_AGE;
+    }
+
+    public static int getMONETARY_VALUE() {
+        return MONETARY_VALUE;
+    }
 }
