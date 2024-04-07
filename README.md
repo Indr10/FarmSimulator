@@ -9,6 +9,7 @@ The user can choose what items to buy at the market. The items include:
 - Clear Weed
 - Harvest All
 - Magic Serum
+
 The user can also exit the market without buying anything. This doesn't trigger the tick function, meaning the field doesn't age if they don't purchase anything in the market. The field will age, however, if the user chooses to buy an item in the market.
 
 ### Shop Item Functionalities
