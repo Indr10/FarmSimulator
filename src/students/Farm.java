@@ -54,9 +54,15 @@ public class Farm {
 			            + "  q: quit");
 			    actionDetect = scanner.nextLine();
 			    
+			    // checks for blank input
+			    if (actionDetect.isBlank()) {
+			        System.out.println("Please enter a valid action!\n");
+			        continue; // restarts the loop
+			    }
+			    
 			    Scanner actionDetectScanner = new Scanner(actionDetect);
 			    action = actionDetectScanner.next();
-
+      
 			    if (action.equals("p") || action.equals("h") || action.equals("t")) {
 			        
 			    	if (actionDetectScanner.hasNextInt()) {
@@ -173,48 +179,56 @@ public class Farm {
 				System.out.println("------ Market Place ------ \n"
 						+ "What would you like to buy?\n");
 				
-				System.out.println("Enter: "
-						+ " \n- 'ms' to buy magic Serum for $"
-						+ MagicSerum.getCost()
-						+ " \n- 'c' to clear all weed $"
-						+ ClearWeed.getCost()
-						+ " \n- 'ha' to harvest all mature crops $"
-						+ HarvestAll.getCost());
+				boolean insideMarket = true;
 				
-				String shopSelection = scanner.nextLine();
+				while (insideMarket) {
 				
-				if (shopSelection.equals("ms")) {
+					System.out.println("Enter: "
+							+ " \n- 'ms' to buy magic Serum for $"
+							+ MagicSerum.getCost()
+							+ " \n- 'c' to clear all weed $"
+							+ ClearWeed.getCost()
+							+ " \n- 'ha' to harvest all mature crops $"
+							+ HarvestAll.getCost());
 					
-					MagicSerum magicSerum = new MagicSerum();
+					String shopSelection = scanner.nextLine();
 					
-					magicSerum.magicSerum();
+					if (shopSelection.equals("ms")) {
+						
+						MagicSerum magicSerum = new MagicSerum();
+						
+						magicSerum.magicSerum();
+						
+						playerBalance -= MagicSerum.getCost();
+						
+					}
 					
-					playerBalance -= MagicSerum.getCost();
+					else if (shopSelection.equals("c")) {
+						
+						ClearWeed clear = new ClearWeed();
+						
+						clear.clear(this.field);
+						
+						playerBalance -= ClearWeed.getCost();
+						
+					}
 					
+					else if (shopSelection.equals("ha")) {
+						
+						HarvestAll harvestAll = new HarvestAll();
+						
+						harvestAll.harvestAll(this.field);
+						
+						playerBalance -= HarvestAll.getCost();
+						playerBalance += HarvestAll.getHarvestValue();
+						
+					}
+					
+					else {
+						System.out.println("\nPlease choose a valid option.\n");
+						continue;
+					}
 				}
-				
-				else if (shopSelection.equals("c")) {
-					
-					ClearWeed clear = new ClearWeed();
-					
-					clear.clear(this.field);
-					
-					playerBalance -= ClearWeed.getCost();
-					
-				}
-				
-				else if (shopSelection.equals("ha")) {
-					
-					HarvestAll harvestAll = new HarvestAll();
-					
-					harvestAll.harvestAll(this.field);
-					
-					playerBalance -= HarvestAll.getCost();
-					
-					playerBalance += HarvestAll.getHarvestValue();
-					
-				}
-				
 			}
 			field.tick();
 		}
