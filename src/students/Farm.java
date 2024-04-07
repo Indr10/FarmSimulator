@@ -17,28 +17,24 @@ public class Farm {
 		
 	}
 	
-	
 	// Main game loop, runs until user quits
 	public void run() {
 		
 		Scanner scanner = new Scanner(System.in);
 		boolean running = true;
-		
-// 		prompts the user to name the Farm
-		System.out.print("Please name your Farm: \n");
-		String farmName = scanner.nextLine();
 			
 		while (running) {
-			
-			// Prints the Farm name
-			System.out.println("     " + farmName + "     ");
-								
+							
+			// stores the user input for action
 			String actionDetect;
 			
 			boolean invalidInput = true;
 			
+			// stores x and y values of the user inputs when relevant
 			int xValue = 0;
 			int yValue = 0;
+			
+			// stores the user input first letter (action)
 			String action = "";
 			
 			// loop to validate all inputs for main actions in the game
