@@ -5,6 +5,7 @@ This change has been made to match the sample out provided, even though the spec
 ### New Functionality
 
 **Market**
+
 The user can choose what items to buy at the market. The items include:
 - Clear Weed
 - Harvest All
