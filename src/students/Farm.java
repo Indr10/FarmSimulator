@@ -7,7 +7,7 @@ import ShopImplementation.*;
 public class Farm {
 	
 	private int playerBalance;
-	Field field;
+	private Field field;
 	
 	public Farm(int fieldWidth, int fieldHeight, int startingFunds) {
 		
@@ -21,14 +21,14 @@ public class Farm {
 		Scanner scanner = new Scanner(System.in);
 		boolean running = true;
 		
-		// prompts the user to name the Farm
-//		System.out.print("Please name your Farm: \n");
-//		String farmName = scanner.nextLine();
+// 		prompts the user to name the Farm
+		System.out.print("Please name your Farm: \n");
+		String farmName = scanner.nextLine();
 			
 		while (running) {
 			
 			// Prints the Farm name
-//			System.out.println(farmName + "\n");
+			System.out.println("     " + farmName + "     ");
 								
 			String actionDetect;
 			
