@@ -84,7 +84,7 @@ public class Farm {
 			                yValue = actionDetectScanner.nextInt() - 1; // -1 cause field starts from 1
 			                
 			                // validates input coordinates to ensure they are within the field
-			                if (xValue < 0 || xValue >= field.getHeight() || yValue < 0 || yValue >= field.getWidth()) {
+			                if (xValue < 0 || xValue >= field.getWidth() || yValue < 0 || yValue >= field.getHeight()) {
 			                    System.out.println("Invalid coordinates. Please enter coordinates within the field.\n");
 			                } 
 			                
@@ -203,7 +203,12 @@ public class Farm {
 					playerBalance += harvestedItem.getValue();	
 				
 					// replace crop with soil
-					field.plant(row, column, new Soil());}
+					field.plant(row, column, new Soil());
+					
+					// displays the item harvested and amount earned
+					System.out.println("Sold " + "'" + harvestedItem.toString()+ "' " + "for $" + harvestedItem.getValue() + "\n");
+					
+				}
 				
 				// invalid harvest item
 				else {
@@ -215,11 +220,19 @@ public class Farm {
 			else if (action.equals("t")) {
 				
 				// replace the item in the location with soil
-				field.till(row, column);	
+				field.till(row, column);
 			}
 			
 			// user chooses to go to market
 			else if (action.equals("m")) {
+				
+				// checks if player has enough money to buy the least expensive item in market
+				if (playerBalance < 5) {
+					
+					// informs player they don't have enough money and prompts for another action
+					System.out.println("you dont have enough money to buy anything in the market\n");
+					continue;
+				}
 				
 				// prompt for user to buy something in market
 				System.out.println("------ Market Place ------ \n"
@@ -236,7 +249,8 @@ public class Farm {
 							+ " \n- 'c' to clear all weed $"
 							+ ClearWeed.getCost()
 							+ " \n- 'ha' to harvest all mature crops $"
-							+ HarvestAll.getCost());
+							+ HarvestAll.getCost()
+							+ " \n- 'e' to exit the market");
 					
 					// Store users buy choice
 					String shopSelection = scanner.nextLine();
@@ -278,14 +292,24 @@ public class Farm {
 						
 					}
 					
+					// user chooses to exit market
+					else if (shopSelection.equals("e")) {
+						
+						// exists the market loop and presents the user main game function options
+						insideMarket = false;
+					}
+					
 					// invalid input
 					else {
 						System.out.println("\nPlease choose a valid option.\n");
 						continue; // restarts the loop to prompt user again
 					}
+					
+					// exists the market loop and presents the user main game function options after user buys something
+					insideMarket = false;
 				}
 			}
-			// tick the farm by 1 tick
+			// age the farm by 1 tick
 			field.tick();
 		}
 	}
