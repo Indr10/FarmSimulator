@@ -46,7 +46,7 @@ public class MagicSerum extends Shop{
 	}
 	
 	/**
-	 * Retrieves the cost of the magic serum.
+	 * Gets the cost of the magic serum.
 	 * @return The cost of the magic serum.
 	 */
 	public static int getCost() {
