@@ -1,6 +1,5 @@
 The spawn rate of Weed is set to 20% per tick throughout the field in a soil instance. 
 i.e. there is a 20% chance that a weed spawns in one of the instances of soil in the field.
-This change has been made to match the sample out provided, even though the specs states that it should be 20% per soil instance in a field.
 
 ### New Functionality
 
